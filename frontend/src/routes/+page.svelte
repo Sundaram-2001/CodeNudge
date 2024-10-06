@@ -14,11 +14,7 @@
   }
 
   function handleSignup() {
-    window.location.href = "/signup";
-  }
-
-  function handleLogin() {
-    window.location.href = "/login";
+    window.location.href = "/main";
   }
 
   onMount(() => {
@@ -28,8 +24,7 @@
 
 <main>
   <h2>{displayedText}</h2>
-  <button class="signup" on:click={handleSignup}>Signup</button>
-  <button class="login" on:click={handleLogin}>Login</button>
+  <button class="main" on:click={handleSignup}>Main</button>
 </main>
 
 <style>
@@ -84,11 +79,11 @@
     transform: translateY(-2px);
   }
 
-  .login {
+  .main {
     background-color: #008cba;
   }
 
-  .login:hover {
+  .main:hover {
     background-color: #007b9a;
   }
 

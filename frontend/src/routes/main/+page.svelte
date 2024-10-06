@@ -24,20 +24,21 @@
     if (validate()) {
       try {
         console.log("Sending request..."); // Debugging statement
-        const response = await fetch("http://localhost:3000/email", {
+        const response = await fetch("http://localhost:3000/addEmail", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email }), // Send as an object
+          body: JSON.stringify({ email }),
         });
         if (response.ok) {
-          const data = await response.json();
-          if (data.redirect) {
-            await goto(data.redirect);
-          } else {
-            console.log("error in form submission!");
-          }
+          // const data = await response.json();
+          // if (data.redirect) {
+          //   await goto(data.redirect);
+          // } else {
+          //   console.log("error in form submission!");
+          // }
+          alert("Form Response Captured!");
         }
       } catch (error) {
         console.error("Fetch Error:", error);
@@ -47,7 +48,7 @@
 </script>
 
 <main>
-  <form action="/email" method="post" on:submit={handleSubmit}>
+  <form action="/addEmail" method="post" on:submit={handleSubmit}>
     <input type="text" name="email" bind:value={email} />
     <button type="submit">submit!</button>
   </form>
